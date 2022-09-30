@@ -1,16 +1,27 @@
-//conectar codigo js con una etiqueta html con id = contenido
-const contenido = document.getElementById("contenido");
+//cuando la pantalla se carga realiza lo siguiente con esto no haria falta el defer
+window.onload = () => {
 
-//variables normalaes
-let nombre = "Marcos";
-let apellido = "Martin";
-let edad = 17;
-let array = [1,2,3,4,5,6,7,8,9];
+    //conectar codigo js con una etiqueta html con id = contenido
+    const contenido = document.getElementById("contenido");
 
-//variable contante recomendable usar en mayusculas
-const COLOR_ROJO = "#FF0000";
-const COLOR_AZUL = "#6BC3FA";
+    //variables normales
+    let nombre = "Marcos";
+    let apellido = "Martin";
+    let array = [1,2,3,4,5,6,7,8,9];
 
+    //variable contante recomendable usar en mayusculas
+    const COLOR_ROJO = "#FF0000";
+    const COLOR_AZUL = "#6BC3FA";
+
+    //mensaje de alert y permite escribir
+    let edad = prompt("introduce edad");
+
+    //condicion de toda la vida mostrado en un alertBox el resultado
+    if(edad >= 18){
+        alert("entrar");
+    }else{
+        alert("pa ksa");
+    }
 
 //poner algo en algun sitio html con un id
 contenido.innerHTML = "HOLLIWIS";
@@ -18,13 +29,6 @@ contenido.innerHTML += "<h1>"+edad+"</h1>";
 
 //concatenar variables
 let resultado = nombre + apellido;
-
-//condicion de toda la vida mostrado en un alertBox el resultado
-if(edad > 18){
-    alert("entrar");
-}else{
-    alert("pa ksa");
-}
 
 //muestra por consola 5 i
 /*for(let i = 0; i < 5; i++){
@@ -66,3 +70,4 @@ addContent("<h5>" + array + "</h5>");
 
 //mostrarlo en un alertBox
 //alert(resultado);
+}

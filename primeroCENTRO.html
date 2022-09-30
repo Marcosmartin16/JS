@@ -7,8 +7,11 @@
     <!--el defer de despues de la ruta del script hace que 
         cargue primero el html y luego ejecute el script para asi
         poder tener cargado todos los id's-->
-    <script src = "scriptCENTRO.js" defer></script>
+    <!--Si no se usa window.onload es necesario usar el defer
+        <script src = "scriptCENTRO.js" defer></script>-->
 
+    <!--Si no se usa defer es con window.onload()--> 
+        <script src = "scriptCENTRO.js" ></script>
 </head>
 <body>
     
