@@ -1,12 +1,9 @@
-const encender = document.getElementById("encender");
-const apagar = document.getElementById("apagar");
-
 function encendido(){
-    estado.innerHTML = "encendido";
-    alert("encendido");
+    document.getElementById("estado").src="encendida.png";
+    alert("encendiendo");
 }
 
 function apagado(){
-    estado.innerHTML = "apagado";
-    alert("apagado");
+    document.getElementById("estado").src="apagada.png";
+    alert("apagando");
 }
