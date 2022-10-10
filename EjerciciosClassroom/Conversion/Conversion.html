@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src = "Conversion.js" defer></script>
+</head>
+<body>
+    <select id = "spinner">
+        <option disabled selected> Selecciona una medida </option>
+        <option value = "Celsius"> CELSIUS </option>
+        <option value = "Fahrenheit"> FAHRENHEIT </option>
+    </select>
+    <div>
+        <form action="Conversion.html" method="get">
+            Numero: <input type="number"  name="numero"><br>
+            <input type="submit" value="convertir" onclick="capturar">
+        </form>
+    </div>
+</body>
+</html>
