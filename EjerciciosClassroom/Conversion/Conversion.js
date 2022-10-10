@@ -1,7 +1,6 @@
-
-
-    let factor = prompt("C para Celsisus o F para Fahrenheit");
-
+let factor = ""
+ while(factor != "salir"){
+    factor = prompt("C para Celsisus o F para Fahrenheit. Escriba salir para parar");
     let numeros = [];
     let conversor = [];
 
@@ -28,5 +27,9 @@
 
 
     document.getElementById("respuesta2").innerHTML = "valores de salida en " + factor + " " + conversor;
+ }
+
+
+    
 
 
