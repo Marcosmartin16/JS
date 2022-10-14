@@ -1,4 +1,5 @@
 let factor = ""
+
  while(factor != "salir"){
     factor = prompt("C para Celsisus o F para Fahrenheit. Escriba salir para parar");
     let numeros = [];
