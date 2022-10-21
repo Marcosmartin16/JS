@@ -12,11 +12,12 @@ for (let i = 0; i < alumnos; i++) {
     let nombre = prompt("introduce nombre del alumno");
     let nota = parseFloat(prompt("introduce la nota del alumno"));
 
+    array.push(nombre, nota);
     notas.push(nota);
     nombres.push(nombre);
 }
 
-var body = document.getElementById("body");
+/*var body = document.getElementById("body");
 var tabla = document.getElementById("tabla");
 var tbody = document.getElementById("tbody");
 
@@ -35,11 +36,13 @@ for (var i = 0; i < 2; i++){
 
 tabla.appendChild(tbody);
 body.appendChild(tabla);
-tabla.setAttribute("border","2");
+tabla.setAttribute("border","2");*/
 
 notas.forEach(sumar);
 
 let media = total / alumnos;
+
+document.getElementById("notas").innerHTML = array;
 
 document.getElementById("media").innerHTML = "La media de las notas de los alumnos introducidas es de: " + media;
 
