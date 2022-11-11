@@ -2,22 +2,19 @@ let abrir;
 
 function abrirVentana(){
     abrir = prompt("Desea abrir una ventana nueva Y/N");
-
+    //En pantalla completa no funciona
     if(abrir == "Y"){
         let ventana = window.open("https://www.youtube.com/?hl=ES","YOUTUBE","height=300, width=200");
         ventana.moveTo(500,500);
-        setTimeout(function(){
-            ventana.moveTo(100,200);
-        },5000);
+        
+        ventana.scrollTo(0,0);
     }else{
         alert("No quiso abrir la ventana");
     }
 }
 
-
-
 function random(){
-    let numero = Math.floor(Math.random());
+    let numero = Math.floor(Math.random()*3);
     
     if(numero == 0){
         window.open("https://www.google.com/intl/es/gmail/about/");
@@ -37,7 +34,7 @@ function random(){
 }
 
 function simple(){
-    let ventana = window.open('','height=100%, width=50%, resizable=false','status=yes,menubar=yes');
+    let ventana = window.open('','height=50%, width=100%, resizable=no','status=yes,menubar=yes');
     if(navigator.cookieEnabled == true){
         ventana.alert("Cookies activadas en el navegador");
     }

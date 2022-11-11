@@ -17,27 +17,6 @@ for (let i = 0; i < alumnos; i++) {
     nombres.push(nombre);
 }
 
-/*var body = document.getElementById("body");
-var tabla = document.getElementById("tabla");
-var tbody = document.getElementById("tbody");
-
-for (var i = 0; i < 2; i++){
-    var hilera = document.createElement("tr");
-
-    for (var j = 0; j < 2; j++){
-        var celda = document.createElement("td");
-        var texto = document.createTextNode("celda " + i + " columna " + j);
-        celda.appendChild(texto);
-        hilera.appendChild(celda);
-    }
-
-    tbody.appendChild(hilera);
-}
-
-tabla.appendChild(tbody);
-body.appendChild(tabla);
-tabla.setAttribute("border","2");*/
-
 notas.forEach(sumar);
 
 let media = total / alumnos;
