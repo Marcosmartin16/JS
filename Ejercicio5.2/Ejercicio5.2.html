@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>POSICION EN TIEMPO REAL</h1>
+    <p id="xR"></p>
+    <p id="yR"></p>
+    <h1>POSICION EN TIEMPO REAL REFERANCIA</h1>
+    <p id="xRR"></p>
+    <p id="yRR"></p>
+    <script>
+        document.addEventListener("mousemove",function(evento){
+            document.getElementById("xR").innerHTML = "POSICION X " + evento.clientX;
+            document.getElementById("yR").innerHTML = "POSICION Y " + evento.clientY;
+            document.getElementById("xRR").innerHTML = "POSICION X " + evento.screenX;
+            document.getElementById("yRR").innerHTML = "POSICION Y " + evento.screenY;
+        });
+    </script>
+</body>
+</html>
