@@ -7,21 +7,21 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="" method="get" id="formulario1">
+    <form action="" onsubmit="return mostrar()" method="get" id="formulario1">
         <label>USERNAME:</label>
         <input type="text" name="nombre" id="username"/><br><br>
         
         <label>GENERO:</label>
-        H <input type="radio" name="genero" value="H"/>
-        M <input type="radio" name="genero" value="M"/><br><br>
+        H <input type="radio" name="genero" value="H" id="genero"/>
+        M <input type="radio" name="genero" value="M" id="genero"/><br><br>
        
         <label>CONTRASEÑA:</label>
         <input type="password" name="contra"/><br><br>
 
         <label>ELIGE UN COLOR:</label><br>
-        verde <input type="radio" name="colores" value="verde"/>
-        rojo <input type="radio" name="colores" value="rojo"/>
-        azul <input type="radio" name="colores" value="azul"/><br><br>
+        verde <input type="radio" name="colores" value="green" id="color"/>
+        rojo <input type="radio" name="colores" value="red" id="color"/>
+        azul <input type="radio" name="colores" value="blue" id="color"/><br><br>
 
         <input type="submit" name="ENVIAR" value="ENVIAR"/>
 
@@ -29,12 +29,28 @@
     <p id="usernameP"></p>
     <p id="generoP"></p>
     <script>
-        document.getElementById("formulario1").addEventListener('submit', validar);
         var username = document.getElementById("username");
         var genero = document.getElementById("genero");
+        var color = document.getElementById("color");
 
-        alert(username.value);
-        document.getElementById("genero").innerHTML = genero.value;
+        function mostrar(){
+            alert("NOMBRE: " + username.value + " GENERO: " + genero.value);
+            
+            document.addEventListener("mousemove",function(evento){
+                if(color.value == "green"){
+                    document.body.style.backgroundColor = "#00FF00";
+                }
+                if(color.value == "red"){
+                    document.body.style.backgroundColor = "#0000FF";
+                }
+                if(color.value == "blue"){
+                    document.body.style.backgroundColor = "#FF0000";
+                }
+            });
+            
+            
+            
+        }
     </script>
 </body>
 </html>
