@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="jugador1"></p>
+    <p id="jugador2"></p>
+    <p id="jugador3"></p>
+    
+    <script>
+        class Jugador{
+            
+            constructor(nombre, edad, ciudad){
+                this.nombre = nombre;
+                this.edad = edad;
+                this.ciudad = ciudad;
+            }
+
+            imprimir(){
+                return this.nombre + " tiene " + this.edad + " años, vive en " + this.ciudad;
+            }
+        }
+        class Campeonato extends Jugador{
+
+            constructor(nombre, edad, ciudad, puntuacion){
+                super(nombre, edad, ciudad);
+                this.puntuacion = puntuacion;
+            }
+
+            informacion(){
+                if(this.puntuacion >= 50){
+                    return "tiene " + this.puntuacion + " puntos puede ir al campeonato";
+                }else{
+                    return "tiene " + this.puntuacion + " puntos no puede ir al campeonato";
+                }
+            }
+        }
+
+        const jugador1 = new Campeonato('Juan',20,"Madrid",20);
+        document.getElementById("jugador1").innerHTML = jugador1.imprimir() + " y " + jugador1.informacion();
+
+        const jugador2 = new Campeonato('Alberto',25,"Madrid",50);
+        document.getElementById("jugador2").innerHTML = jugador2.imprimir() + " y " + jugador2.informacion();
+
+        const jugador3 = new Campeonato('Martin',18,"Madrid",100);
+        document.getElementById("jugador3").innerHTML = jugador3.imprimir() + " y " + jugador3.informacion();
+
+    </script>
+</body>
+</html>

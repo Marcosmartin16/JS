@@ -1,56 +1,115 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Document</title>
+
 </head>
+
 <body>
-    <form action="" onsubmit="return mostrar()" method="get" id="formulario1">
+
+    <form action=""  method="">
+
         <label>USERNAME:</label>
+
         <input type="text" name="nombre" id="username"/><br><br>
+
         
+
         <label>GENERO:</label>
+
         H <input type="radio" name="genero" value="H" id="genero"/>
+
         M <input type="radio" name="genero" value="M" id="genero"/><br><br>
+
        
+
         <label>CONTRASEÑA:</label>
+
         <input type="password" name="contra"/><br><br>
 
+
+
         <label>ELIGE UN COLOR:</label><br>
+
         verde <input type="radio" name="colores" value="green" id="color"/>
+
         rojo <input type="radio" name="colores" value="red" id="color"/>
+
         azul <input type="radio" name="colores" value="blue" id="color"/><br><br>
 
-        <input type="submit" name="ENVIAR" value="ENVIAR"/>
+
+
+        <button type="button" name="ENVIAR" value="ENVIAR" id="enviar">Enviar</button>
+
+
 
     </form>
-    <p id="usernameP"></p>
-    <p id="generoP"></p>
-    <script>
-        var username = document.getElementById("username");
-        var genero = document.getElementById("genero");
-        var color = document.getElementById("color");
 
-        function mostrar(){
-            alert("NOMBRE: " + username.value + " GENERO: " + genero.value);
-            
-            document.addEventListener("mousemove",function(evento){
-                if(color.value == "green"){
-                    document.body.style.backgroundColor = "#00FF00";
+    <p id="usernameP"></p>
+
+    <p id="generoP"></p>
+
+    <script>
+
+        var username = document.getElementById("username");
+
+        var genero = document.getElementById("genero");
+
+        var colores = document.getElementsByName("colores");            
+
+        
+
+        var btnEnviar = document.getElementById("enviar");
+
+
+
+            btnEnviar.addEventListener("click",()=>{
+
+
+
+                for(i=0; i < colores.length; i++){
+
+                    if(colores[i].checked == true){
+
+                        alert("NOMBRE: " + username.value + " GENERO: " + genero.value);
+
+                        
+
+                        if(colores[i].value == "green"){
+
+                            document.body.style.backgroundColor = "#00FF00";
+
+                        }
+
+                        if(colores[i].value == "red"){
+
+                            document.body.style.backgroundColor = "#FF0000";
+
+                        }
+
+                        if(colores[i].value == "blue"){
+
+                            document.body.style.backgroundColor = "#0000FF";
+
+                        }
+
+                    }
+
                 }
-                if(color.value == "red"){
-                    document.body.style.backgroundColor = "#0000FF";
-                }
-                if(color.value == "blue"){
-                    document.body.style.backgroundColor = "#FF0000";
-                }
-            });
-            
-            
-            
-        }
+
+            });  
+
     </script>
+
 </body>
+
 </html>

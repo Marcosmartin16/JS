@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method = "">
+        NUMERO: <input type="number" id="numero" min="0"/><br><br>
+    
+        HORA: <input type="text" id="hora"/><br><br>
+
+
+        <input type="button" value="Comprobar" id="btn"/>
+    </form>
+    <script>
+        let r = /^[0-9]{1,3}.[0-9]{0,3}$/;
+        let r2 = /^[01]\d|2[0-3]:[0-5]\d:[0-5]\d$/;
+
+        var numero = document.getElementById("numero");
+        var hora = document.getElementById("hora");
+        var btn = document.getElementById("btn");
+
+        btn.addEventListener("click",()=>{
+
+            if(r.test(numero.value)){
+                alert('El numero es correcto');
+            }else{
+                alert('El numero no es correcto' + numero.value);
+            }
+
+            if(r2.test(hora.value)){
+                alert('La fecha es correcto');
+            }else{
+                alert('La fecha no es correcto');
+            }
+        });  
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        TEXTO: <input type="text" id="texto"/><br><br>
+
+        NUMERO: <input type="number" id="numero"/><br><br>
+
+        <label>ELIGE UN COLOR:</label><br>
+
+        RADIO1 <input type="radio" name="radios" value="radio1" />
+
+        RADIO2 <input type="radio" name="radios" value="radio2" />
+
+        RADIO3 <input type="radio" name="radios" value="radio3" /><br><br>
+
+        <label>ELIGE UN CHECK:</label><br>
+
+        CHECK1 <input type="checkbox" name="check" value="check1" />
+
+        CHECK2 <input type="checkbox" name="check" value="check2" />
+
+        CHECK3 <input type="checkbox" name="check" value="check3" /><br><br>
+
+        <select id="select">
+            <option value=”10”>10</option>;
+            <option value=”5”>5</option>;
+            <option value=”0”>0</option>;
+        </select><br><br>
+
+        <input type="submit" value="Comprobar" id="btn"/>
+    </form>
+    <script>
+
+        let texto = document.getElementById("texto");
+        let numero = document.getElementById("numero");
+        let radio = document.getElementsByName("radios");            
+        let checkbox = document.getElementsByName("check");            
+        let select = document.getElementById("select");
+
+
+        var btnEnviar = document.getElementById("btn");
+
+        btnEnviar.addEventListener("click",()=>{
+
+            let selSeleccionado = select.selectedIndex;
+
+
+                for (let i = 0; i < radio.length; i++) {
+                    if(radio[i].checked == true){
+                        var radioSeleccionado = radio[i].value;
+                    }           
+                }
+
+                let arrayCheck = [];
+
+                for (let i = 0; i < checkbox.length; i++) {
+                    if(checkbox[i].checked == true){
+                        arrayCheck.push([checkbox[i].value]);
+                    }           
+                }
+
+        /*for (let i = 0; i < select.options.length; i++) {
+            if(select.options[i].checked == true){
+                let selectSeleccionado = select.options[i].value;
+            }else{
+                alert("error en radio");
+            }            
+        }*/
+
+        alert(texto.value + " " + numero.value + " " + radioSeleccionado + " " + arrayCheck + " " + select.options[selSeleccionado].text);
+
+        select.selectedIndex = 0;
+
+    });
+
+
+    </script>
+</body>
+</html>

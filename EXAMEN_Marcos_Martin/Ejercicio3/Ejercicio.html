@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id="body">
+    
+    <form>
+        <button type="button" name="pulsame" value="pulsame" id="pulsame">PULSAME</button>
+    </form>
+
+    <script>
+
+    var btnEnviar = document.getElementById("pulsame");
+    var body = document.getElementById("body");
+
+    btnEnviar.addEventListener("click",()=>{
+
+        var numero = Math.floor(Math.random() * 3);
+
+        if(numero == 0){
+            document.body.style.backgroundColor = "#00FF00";
+        }
+        
+        if(numero == 1){
+            document.body.style.backgroundColor = "#FF0000";
+        }
+
+        if(numero == 2){
+            document.body.style.backgroundColor = "#0000FF";
+        }
+    });
+
+    /*body.addEventListener("click",()=>{
+        document.body.style.backgroundColor = "#FFFFFF";
+    });*/
+    
+    </script>
+</body>
+</html>

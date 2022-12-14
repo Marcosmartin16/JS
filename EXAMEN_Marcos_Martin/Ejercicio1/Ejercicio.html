@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="Ejercicio.html">
+        Nombre del disco <input type="text" id="disco" maxlength="25" minlength="1"/><br><br>
+
+        Presentado si <input type="checkbox" name="presentado" value="ha sido presentado" />
+    
+        Presentado no <input type="checkbox" name="presentado" value="no ha sido presentado" /><br><br>
+    
+        Usuario de prestamo <input type="text" id="nombre" maxlength="25" minlength="1"/><br><br>
+    
+        Telefono <input type="number" id="telefono" placeholder="campo no requerido" maxlength="9"/><br><br>
+    
+        <label>Comentarios</label><br>
+        <textarea id="comentarios" name="comentarios" rows="5" cols="33" maxlength="300" placeholder="Comente algo sobre el disco"></textarea><br><br>
+    
+        <input type="submit" value="Enviar" id="btnEnviar"/>
+        <!--<input type="reset" value="Limpiar" id="btnLimpiar"/>-->
+    </form>
+    
+    <script>
+
+        let nombreDisco = document.getElementById("disco");
+        let checkbox = document.getElementsByName("presentado");
+        let usuario = document.getElementById("nombre");
+        let telefono = document.getElementById("telefono");
+        let textArea = document.getElementById("comentarios");
+
+        var btnEnviar = document.getElementById("btnEnviar");
+        var btnLimpiar = document.getElementById("btnLimpiar");
+
+        btnEnviar.addEventListener("click",()=>{
+
+                let arrayCheck = [];
+                let errores = 0;
+                let checkSeleccionado = 0;
+                let r2 = /^[0-9]{9}$/;
+
+                if(nombreDisco.value == ""){
+                    errores++;
+                    alert("El nombre del disco no puede estar vacio");
+                }
+
+                if(usuario.value == ""){
+                    errores++;
+                    alert("El nombre de usuario no puede estar vacio");
+                }
+
+                for (let i = 0; i < checkbox.length; i++) {
+                    if(checkbox[i].checked == true){
+                        arrayCheck.push([checkbox[i].value]);
+                    }
+                }
+
+                if(arrayCheck.length == 0){
+                    errores++;
+                    alert("Seleccione si se ha presentado o no");
+                }
+
+                if(telefono.value != ""){
+                    if(r2.test(telefono.value)){
+                        alert("El telefono cumple con los patrones");
+                    }else{
+                        errores++;
+                        alert("El telefono cumple con los patrones");
+                    }
+                }
+
+                if(textArea.value == ""){
+                    errores++;
+                    alert("Los comentarios no puede estar vacios");
+                }
+
+                if(errores == 0){
+                    alert("El disco " + nombreDisco.value + " " + arrayCheck + " por el usuario " + usuario.value + " " + telefono.value + " ademas el usuario comenta " + comentarios.value);
+                }
+        });
+
+        /*btnLimpiar.addEventListener("click",()=>{
+        
+            location.reload()
+        });*/
+
+    </script>
+</body>
+</html>

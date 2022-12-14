@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <p id="arrayOg"></p>
+    <p id="total"></p>
+    <p id="totalMenores"></p>
+    <p id="numeroMayores"></p>
+
+
+    <script>
+
+        let arrayNumeros = [];
+        let arrayMenores = [];
+        let contador = 0;
+
+        for (let i = 0; i < 10; i++) {
+            
+            let numero = parseFloat(prompt("Introduce el numero " + i + " de 10"));
+            arrayNumeros.push(numero);
+        }
+
+        for (let i = 0; i < arrayNumeros.length; i++) {
+            
+            if(arrayNumeros[i] < 600){
+                arrayMenores.push(arrayNumeros[i]);
+            }
+
+            if(arrayNumeros[i] > 2000){
+                contador++;
+            }
+        }
+
+        function total(sucursal){
+            let total = sucursal.reduce((a, b) => a + b, 0);
+            return total;
+        }
+
+        document.getElementById("arrayOg").innerHTML = "El array de numeros es " + arrayNumeros;
+
+        document.getElementById("total").innerHTML = "El total del array de numeros es " + total(arrayNumeros);
+
+        document.getElementById("totalMenores").innerHTML = "El total del array de numeros que son menores de 600 es " + total(arrayMenores);
+
+        document.getElementById("numeroMayores").innerHTML = "Hay " + contador + " de numeros mayores a 2000 en el array";
+
+    </script>
+</body>
+</html>
