@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form>
+        Introduzca el numero de checkbox<input type="number" id="numero" min="0">
+        <input type="button" value="Generar" id="btn"/>
+    </form>   
+    <div id="checkboxes">
+
+    </div>
+    <script>
+        var numero = document.getElementById("numero");
+        var checkboxes = document.getElementById("checkboxes");
+        var btn = document.getElementById("btn");
+
+        btn.addEventListener("click",()=>{
+
+            var numeroHijos = checkboxes.childNodes;
+
+            if(numero.value == numeroHijos){
+                console.log("mismo numero generado");
+            }else{
+
+                while (checkboxes.firstChild) {
+                    checkboxes.removeChild(checkboxes.firstChild);
+                }
+
+                for(var i = 0; i < numero.value; i++){
+                
+                    var checkbox = document.createElement("INPUT");
+                    checkbox.setAttribute("type", "checkbox");
+
+                    var numeroRandom = document.createTextNode(Math.random() * 1);
+
+                    var br = document.createElement("br");
+
+                    var label = document.createElement("label");
+                    label.appendChild(checkbox);
+                    label.appendChild(numeroRandom);
+                    label.appendChild(br);
+
+                    checkboxes.append(label);
+                }
+            }
+        });  
+    </script>
+</body>
+</html>

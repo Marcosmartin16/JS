@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="titulo">Esto es un titulo dinamico</h1>
+    <input type="button" value="Cambiar color" id="btnColor"/>
+    <input type="button" value="Cambiar fuente" id="btnFuente"/>
+    <script>
+    
+        var titulo = document.getElementById("titulo");
+        var btnColor = document.getElementById("btnColor");       
+        var btnFuente = document.getElementById("btnFuente");       
+
+        btnColor.addEventListener("click",()=>{
+            
+            var simbolos, color;
+            simbolos = "0123456789ABCDEF";
+            color = "#";
+
+            for(var i = 0; i < 6; i++){
+                color = color + simbolos[Math.floor(Math.random() * 16)];
+            }
+			
+            titulo.style.color = color;        
+        });
+
+
+        btnFuente.addEventListener("click",()=>{
+
+            var fuentes = ["Italic", "Arial", "cursive", "monospace"];
+            var numero = Math.floor(Math.random() * fuentes.length);
+
+            console.log(numero);
+            titulo.style.fontFamily= fuentes[numero];
+        });
+    </script>
+</body>
+</html>
