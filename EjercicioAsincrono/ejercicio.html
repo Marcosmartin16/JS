@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <form id="reg-form" action="" method="post" autocomplete="off">
+    <fieldset>
+     <div>
+        <input type="text" name="name" id="name" placeholder="Username" />
+        <input type="button" value="checkear" id="btn"/>
+    </div>
+    </fieldset>
+    </form>
+
+    <script type="text/javascript" >
+        var btn = document.getElementById("btn");
+        var nombre = document.getElementById("name");
+        
+        btn.addEventListener("click",()=>{
+            
+            let nombreDefinido = nombre.value;
+
+            $.ajax({
+
+                method: "POST",
+                url: "comprobarNombre.php",
+                data: { nombre:nombreDefinido }
+
+            })
+
+            .done(function( response ) {
+
+                alert(response);
+
+            });
+        });
+    </script>
+</body>
+</html>
