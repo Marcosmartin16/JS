@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="numero" id="numero">
+    <input type="button" value="Comprobar" onclick="comprobar(numeroadivinar, contador)">
+    <div id="solucion">
+
+    </div>
+
+    <script>
+
+        var contador = 0;
+        var numeroadivinar = Math.floor(Math.random()*5);
+
+        function comprobar(){
+            var numero = document.getElementById("numero");
+            var solucion = document.getElementById("solucion");
+            var parrafo = document.createElement("p");
+
+            while (solucion.firstChild) {
+                    solucion.removeChild(solucion.firstChild);
+            }
+            
+            if(contador < 3){
+
+                if(numero.value == numeroadivinar){
+                    var texto = "HAS ACERTADO";
+                    parrafo.append(texto);
+                    solucion.append(parrafo);
+                }else{
+                    var texto = "HAS FALLADO" + numeroadivinar;
+
+                    parrafo.append(texto);
+                    solucion.append(parrafo);
+                    contador += 1;
+                    alert(contador);
+                }
+            }else{
+                alert("no te quedan oportunidades, cambiando numero");
+                numeroadivinar = Math.floor(Math.random()*5);
+                contador = 0;
+            }
+        }
+    </script>
+</body>
+</html>

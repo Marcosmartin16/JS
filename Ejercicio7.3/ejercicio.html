@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>CREAR USUARIO</h1>
+    <form id="formularioCrear">
+        NOMBRE: <input type="text" name="nombre" id="nombre"><br>
+        APELLIDO: <input type="text" name="apellido" id="apellido"><br>
+        DNI: <input type="text" name="dni" id="dni"><br>
+        ESTUDIOS: <input type="text" name="estudios" id="estudios"><br>
+        <input type="submit" value="crear" id="crear"><br>
+    </form>
+    <br>
+    <h1>BORRAR USUARIO</h1>
+    <form id="formularioBorrar">
+        DNI: <input type="text" name="dni" id="dni"><br>
+
+        <input type="submit" value="borrar" id="borrar">
+    </form>
+
+    <script>
+
+        'use strict';
+
+        const formularioCrear = document.getElementById('formularioCrear');
+        const formularioBorrar = document.getElementById('formularioBorrar');
+
+        formularioCrear.addEventListener('submit', crearUsuarioPHP);
+        formularioBorrar.addEventListener('submit', borrarUsuarioPHP);
+
+        function crearUsuarioPHP (evento){
+
+            evento.preventDefault();
+
+            let nombre = document.getElementById('nombre').value;
+            let apellido = document.getElementById('apellido').value;
+            let dni = document.getElementById('dni').value;
+            let estudios = document.getElementById('estudios').value;
+
+            fetch('crearUsuario.php',{
+
+                method: 'POST',
+
+                body: new FormData(formularioCrear)
+            })
+
+            .then(respuesta => respuesta.json())
+            .then(dato => {
+                alert(dato);
+                formularioCrear.reset();
+            })
+        }
+
+        function borrarUsuarioPHP (evento){
+
+            evento.preventDefault();
+            
+            let dni = document.getElementById('dni').value;
+
+            fetch('borrarUsuario.php',{
+
+                method: 'POST',
+                body: new FormData(formularioBorrar)
+            })
+
+            .then(respuesta => respuesta.json())
+            .then(dato => {
+                alert(dato);
+                formularioBorrar.reset();
+            })
+        }
+
+    </script>
+</body>
+</html>

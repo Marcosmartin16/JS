@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form>
+        NUMERO DE NOCHES: <input type="text" name="noches" id="noches">
+        <select name="select" id="select">
+            <option value="Oviedo">Oviedo</option>
+            <option value="Tokyo">Tokyo</option>
+            <option value="Madrid">Madrid</option>
+            <option value="Barcelona">Barcelona</option>
+        </select>
+        <input type="button" value="calcular" id="calcular" onclick="hotel(numNoches)"><br>
+        COSTE HOTEL: <input type="text" name="hotel" id="hotel"><br>
+        COSTE VIAJE: <input type="text" name="viaje" id="viaje"><br>
+        COSTE COCHE: <input type="text" name="coche" id="coche"><br>
+        COSTE TOTAL: <input type="text" name="total" id="total">
+    </form>
+
+    <script>
+
+        var btn = document.getElementById("calcular");
+
+        function hotel(numNoches){
+            var total = numNoches * 140;
+            return total
+        }
+
+        function viaje(){
+            var select = document.getElementById("select");
+            var selectSelected = select.options[select.selectedIndex].value;
+            switch (selectSelected) {
+                case "Oviedo":
+                        return 15;
+                    break;
+                case "Tokyo":
+                        return 700;
+                    break;
+                case "Madrid":
+                        return 90;
+                    break;
+                case "Barcelona":
+                        return 90;
+                    break;
+            }
+        }
+
+        function coche(numNoches){
+            if(numNoches >= 3){
+                var totalCoche = numNoches*40;
+                return totalCoche-20;
+            }else if(numNoches >= 7){
+                var totalCoche = numNoches*40;
+                return totalCoche-50;
+            }else{
+                var totalCoche = numNoches*40;
+                return totalCoche;
+            }
+        }
+
+        btn.addEventListener("click",()=>{
+            var num = document.getElementById("noches");
+            var numNoches = num.value;
+
+            var hotelC = document.getElementById("hotel");
+            var viajeC = document.getElementById("viaje");
+            var cocheC = document.getElementById("coche");
+            var total = document.getElementById("total");
+
+            var costeHotel = hotel(numNoches);
+            var costeViaje = viaje();
+            var costeCoche = coche(numNoches);
+            
+            hotelC.value = costeHotel;
+            viajeC.value = costeViaje;
+            cocheC.value = costeCoche;
+            total.value = costeHotel + costeViaje + costeCoche;
+        }); 
+    </script>
+</body>
+</html>

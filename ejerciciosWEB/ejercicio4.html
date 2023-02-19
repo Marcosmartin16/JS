@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form>
+        EUROS: <input type="text" name="euros" id="euros">
+        DOLARES: <input type="text" name="euros" id="dolares">
+        <input type="button" value="ANALIZAR" onclick="calcular()">
+    </form>
+
+    <script>
+
+        function calcular(){
+            var euros = document.getElementById("euros");
+            var dolares = document.getElementById("dolares");
+
+            var numEuros = euros.value;
+            dolares.value = numEuros * 2;
+        }
+
+    </script>
+</body>
+</html>
